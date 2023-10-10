@@ -9,13 +9,19 @@ import { getAuth } from "firebase/auth"; // <- needed for auth (later)
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+// Import the functions you need from the SDKs you need
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyC55qkFnQJffWLBCjPzYDBRf0tMHBDweRE",
-  authDomain: "inclassadvjs.firebaseapp.com",
-  projectId: "inclassadvjs",
-  storageBucket: "inclassadvjs.appspot.com",
-  messagingSenderId: "589233081065",
-  appId: "1:589233081065:web:3dc37aee8d67df10023e78"
+  apiKey: "AIzaSyCn1cfusiCCiijTeFHQo9H-RxrVpKQ5GG0",
+  authDomain: "portfolio2-12f71.firebaseapp.com",
+  projectId: "portfolio2-12f71",
+  storageBucket: "portfolio2-12f71.appspot.com",
+  messagingSenderId: "129629370134",
+  appId: "1:129629370134:web:7aaaefd80dc4b7ebd18237"
 };
 
 

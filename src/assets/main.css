@@ -1,26 +1,39 @@
 @import './base.css';
 
 #app {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 4rem;
 
   font-weight: normal;
 }
 
-a,
-.green {
+/* Nav CSS */
+
+.wrapper {
+display: flex;
+flex-wrap: nowrap;
+}
+
+nav a {
   text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+/* About page CSS */
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
 }
 
+.admin_project_card {
+border: 2px solid #000000;
+margin: 10px;
+padding: 10px;
+
+}
+
+/* 
 @media (min-width: 1024px) {
   body {
     display: flex;
@@ -32,4 +45,4 @@ a,
     grid-template-columns: 1fr 1fr;
     padding: 0 2rem;
   }
-}
+} */

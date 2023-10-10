@@ -3,24 +3,38 @@ import { db } from '../firebase.js'
 import { ref } from 'vue'
 import { collection, onSnapshot, doc, deleteDoc, addDoc, updateDoc } from 'firebase/firestore';
 
-const useProducts = () => {
+const useProjects = () => {
 
-  const products = ref([]); // to store data from firebase
-  const productDataRef = collection(db, 'products');
+  const projects = ref([]); // to store data from firebase
+  const projectDataRef = collection(db, 'projects');
 
-  const AddProductData = ref({
-    productName: '',
-    productPrice: ''
+  const AddProjectData = ref({
+    projectTitle: '',
+    projectCategory: '',
+    projectDate: '',
+    projectDescription: '',
+    projectTeam: '',
+    projectTech: '',
+    projectStatus: '',
+    projectLink: '',
+    projectProcess: '',
   })
 
-  const UpdateProductData = ref({
-    productName: '',
-    productPrice: ''
+  const UpdateProjectData = ref({
+    projectTitle: '',
+    projectCategory: '',
+    projectDate: '',
+    projectDescription: '',
+    projectTeam: '',
+    projectTech: '',
+    projectStatus: '',
+    projectLink: '',
+    projectProcess: '',
   })
 
-  const getProductsData = () => {
-    onSnapshot(productDataRef, (snapshot) => {
-      products.value = snapshot.docs.map(doc => {
+  const getProjectsData = () => {
+    onSnapshot(projectDataRef, (snapshot) => {
+      projects.value = snapshot.docs.map(doc => {
         return {
           id: doc.id,
           ...doc.data()
@@ -29,19 +43,26 @@ const useProducts = () => {
         }
       })
     })
-    console.log("test", products)
+    console.log("test", projects)
   }
 
   const firebaseDeleteSingleItem = async(id) => {
-    await deleteDoc(doc(db, "products", id));
+    await deleteDoc(doc(db, "projects", id));
     console.log("is deleted", id)
   }
 
   const firebaseAddSingleItem = async() => {
-    await addDoc(collection(db, "products"),
+    await addDoc(collection(db, "projects"),
       {
-        productName: AddProductData.value.productName,
-        productPrice: 100
+        projectTitle: AddProjectData.value.projectTitle,
+        projectCategory: AddProjectData.value.projectCategory,
+        projectDate: AddProjectData.value.projectDate,
+        projectDescription: AddProjectData.value.projectDescription,
+        projectTeam: AddProjectData.value.projectTeam,
+        projectTech: AddProjectData.value.projectTech,
+        projectStatus: AddProjectData.value.projectStatus,
+        projectLink: AddProjectData.value.projectLink,
+        projectProcess: AddProjectData.value.projectProcess,
       }
     );
       
@@ -49,9 +70,9 @@ const useProducts = () => {
 
   }
 
-  const firebaseUpdateSingleItem = async(product) => { 
-    await updateDoc(doc(productDataRef, product), {
-        productName: products.value.find(product => product.id === product.id).productName, 
+  const firebaseUpdateSingleItem = async(project) => { 
+    await updateDoc(doc(projectDataRef, project), {
+        projectTitle: project.value.find(project => project.id === project.id).projectTitle, 
      // productName: UpdateProductData.value.productName, 
      // productPrice: 200
     }).then(() => {
@@ -60,14 +81,14 @@ const useProducts = () => {
   }
 
   return {
-    getProductsData,
-    products,
+    getProjectsData,
+    projects,
     firebaseDeleteSingleItem,
     firebaseAddSingleItem,
-    AddProductData,
+    AddProjectData,
     firebaseUpdateSingleItem,
-    UpdateProductData
+    UpdateProjectData
   }
  }
 
-  export default useProducts;
+  export default useProjects;
