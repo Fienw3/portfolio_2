@@ -43,8 +43,8 @@ let logOut = () => {
      
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink v-if="isLoggedIn" to="/navguard">Add projects</RouterLink>
+        <RouterLink to="/projects">Projects</RouterLink>
+        <RouterLink v-if="isLoggedIn" to="/addprojects">Add projects</RouterLink>
         <RouterLink v-if="isLoggedOut" to="/login">Login</RouterLink>
       </nav>
       <button @click="logOut" v-if="isLoggedIn">Log Out</button>

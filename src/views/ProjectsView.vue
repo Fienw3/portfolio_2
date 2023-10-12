@@ -1,22 +1,5 @@
 <template>
-  <div class="about">
-
-    
-    <div>
-      <h2>Tilføj Projekt</h2>
-      <input type="text" placeholder="Project name" v-model="AddProjectData.projectTitle" >
-      <input type="text" placeholder="Project category" v-model="AddProjectData.projectCategory" >
-      <input type="date" placeholder="Project date" v-model="AddProjectData.projectDate" >
-      <input type="text" placeholder="Project description" v-model="AddProjectData.projectDescription" >
-      <input type="text" placeholder="Project team" v-model="AddProjectData.projectTeam" >
-      <input type="text" placeholder="Project tech" v-model="AddProjectData.projectTech" >
-      <input type="text" placeholder="Project status" v-model="AddProjectData.projectStatus" >
-      <input type="text" placeholder="Project link" v-model="AddProjectData.projectLink" >
-      <button class="btn-add" @click="firebaseAddSingleItem()">Add Item</button>
-
-
-    </div>
-    <hr>
+  <div class="project-view">
 
     <div class="admin_project_card" v-for="project in projects" :key="project">
       <h2>
@@ -57,7 +40,26 @@
 
 <script setup>
 import useProjects from '../modules/useProducts.js';
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
+
+import { auth } from '../firebase.js'
+import { onAuthStateChanged } from 'firebase/auth'
+
+let isLoggedIn = ref(false)
+
+onMounted(() => {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      isLoggedIn.value = true
+      console.log('User logged in', auth.currentUser)
+
+    } else {
+      isLoggedIn.value = false
+      console.log('User logged out', auth.currentUser)
+
+    }
+  })
+})
 
 
 const { 
@@ -80,7 +82,7 @@ onMounted(() => {
 
 <style>
 @media (min-width: 1024px) {
-  .about {
+  .project-view {
     min-height: 100vh;
     display: flex;
     align-items: center;
