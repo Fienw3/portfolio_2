@@ -61,7 +61,6 @@ onMounted(() => {
   })
 })
 
-
 const { 
   projects, 
   getProjectsData, 

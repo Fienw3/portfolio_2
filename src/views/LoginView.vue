@@ -23,7 +23,7 @@ let logIn = () => {
   signInWithEmailAndPassword(auth, email.value, password.value)
   .then((data) => {
     console.log("test data", data)
-    router.push('/navguard')
+    router.push('/home')
   })
   .catch((error) => {
     switch(error.code) {
