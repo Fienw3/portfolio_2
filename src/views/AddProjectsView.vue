@@ -2,7 +2,7 @@
   <div class="add-project">
 
     <div>
-      <h2 class="italic">Tilføj Projekt</h2>
+      <h2 class="l">Tilføj Projekt</h2>
       <input type="text" placeholder="Project name" v-model="AddProjectData.projectTitle" >
       <input type="text" placeholder="Project category" v-model="AddProjectData.projectCategory" >
       <input type="date" placeholder="Project date" v-model="AddProjectData.projectDate" >
