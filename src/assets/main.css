@@ -1,10 +1,12 @@
 @import './base.css';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 #app {
   margin: 0 auto;
   padding: 4rem;
 
-  font-weight: normal;
 }
 
 /* Nav CSS */
