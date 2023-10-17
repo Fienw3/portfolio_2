@@ -2,7 +2,7 @@
   <div class="project-view">
 
     <div class="admin_project_card" v-for="project in projects" :key="project">
-      <h2 class="font-extrabold">
+      <h2 class="font-bold">
         {{ project.projectTitle }}
       </h2>
       <p>
