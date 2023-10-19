@@ -11,6 +11,7 @@
       <input type="text" placeholder="Project tech" v-model="AddProjectData.projectTech" >
       <input type="text" placeholder="Project status" v-model="AddProjectData.projectStatus" >
       <input type="text" placeholder="Project link" v-model="AddProjectData.projectLink" >
+      <input type="text" placeholder="Project Process" v-model="AddProjectData.projectProcess" >
       <button class="btn-add" @click="firebaseAddSingleItem()">Add Item</button>
 
 
