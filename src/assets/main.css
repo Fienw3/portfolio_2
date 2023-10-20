@@ -1,29 +1,13 @@
 @import './base.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 #app {
-  margin: 0 auto;
-  padding: 4rem;
-
-  font-weight: normal;
-}
-
-/* Nav CSS */
-
-.wrapper {
-display: flex;
-flex-wrap: nowrap;
-}
-
-nav a {
-  text-decoration: none;
-}
-
-/* About page CSS */
-.about {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: 0 auto;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .admin_project_card {

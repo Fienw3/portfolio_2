@@ -1,4 +1,14 @@
 <template>
+
+<div class="category-boxes sm:flex-wrap md:flex-wrap">
+  <button type="button" class="web-btn" @click="changeCategory('Web')" value="Web">Web</button>
+  <button type="button" class="video-btn" @click="changeCategory('Video')" value="Video">Video</button>
+  <button type="button" class="photo-btn" @click="changeCategory('Photo')" value="Photos">Photos</button>
+  <button type="button" class="design-btn" @click="changeCategory('Design')" value="Design">Design</button>
+  <button type="button" class="ui/ux-btn" @click="changeCategory('UX-UI')" value="UX-UI">UI/UX</button>
+  <button type="button" class="all" @click="changeCategory('All')">All</button>
+</div>
+
   <div class="project-view">
     <div class="admin_project_card" v-for="project in projects" :key="project.projectID">
         <h4>{{ project.projectTitle }}</h4>
@@ -78,7 +88,6 @@ import { onMounted, ref } from 'vue';
 
 import { auth } from '../firebase.js';
 import { onAuthStateChanged } from 'firebase/auth';
-
 
 const isLoggedIn = ref(false);
 const isEditModalOpen = ref(false);
