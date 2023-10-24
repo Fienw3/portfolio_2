@@ -72,25 +72,25 @@ const useProjects = () => {
 
   const firebaseUpdateSingleItem = async(project) => { 
     await updateDoc(doc(projectDataRef, project), {
-        projectTitle: project.value.find(project => project.id === project.id).projectTitle, 
-        projectCategory: project.value.find(project => project.id === project.id).projectCategory,
-        projectDate: project.value.find(project => project.id === project.id).projectDate,
-        projectDescription: project.value.find(project => project.id === project.id).projectDescription,
-        projectTeam: project.value.find(project => project.id === project.id).projectTeam,
-        projectTech: project.value.find(project => project.id === project.id).projectTech,
-        projectStatus: project.value.find(project => project.id === project.id).projectStatus,
-        projectLink: project.value.find(project => project.id === project.id).projectLink,
-        projectProcess: project.value.find(project => project.id === project.id).projectProcess,
+        projectTitle: projects.value.find(project => project.id === project.id).projectTitle, 
+        projectCategory: projects.value.find(project => project.id === project.id).projectCategory,
+        projectDate: projects.value.find(project => project.id === project.id).projectDate,
+        projectDescription: projects.value.find(project => project.id === project.id).projectDescription,
+        projectTeam: projects.value.find(project => project.id === project.id).projectTeam,
+        projectTech: projects.value.find(project => project.id === project.id).projectTech,
+        projectStatus: projects.value.find(project => project.id === project.id).projectStatus,
+        projectLink: projects.value.find(project => project.id === project.id).projectLink,
+        projectProcess: projects.value.find(project => project.id === project.id).projectProcess,
     }).then(() => {
-      UpdatePojectData.value.projectTitle = ''
-      UpdatePojectData.value.projectCategory = ''
-      UpdatePojectData.value.projectDate = ''
-      UpdatePojectData.value.projectDescription = ''
-      UpdatePojectData.value.projectTeam = ''
-      UpdatePojectData.value.projectTech = ''
-      UpdatePojectData.value.projectStatus = ''
-      UpdatePojectData.value.projectLink = ''
-      UpdatePojectData.value.projectProcess = ''
+      UpdateProjectData.value.projectTitle = ''
+      UpdateProjectData.value.projectCategory = ''
+      UpdateProjectData.value.projectDate = ''
+      UpdateProjectData.value.projectDescription = ''
+      UpdateProjectData.value.projectTeam = ''
+      UpdateProjectData.value.projectTech = ''
+      UpdateProjectData.value.projectStatus = ''
+      UpdateProjectData.value.projectLink = ''
+      UpdateProjectData.value.projectProcess = ''
     })
   }
 

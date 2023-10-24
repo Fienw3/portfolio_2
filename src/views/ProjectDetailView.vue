@@ -4,30 +4,30 @@
       <div v-if="projectDetailView" class="projectDetailView">
             <div class="projects-box1">
         <h2>
-        {{ project.projectTitle }}
+        {{ projectDetailView.projectTitle }}
         </h2>
     </div>
     <div class="projects-box2">
       <p>
-        Category: {{ project.projectCategory }}
+        Category: {{ projectDetailView.projectCategory }}
       
-        Date: {{ project.projectDate }}
+        Date: {{ projectDetailView.projectDate }}
       
-        Description: {{ project.projectDescription }}
+        Description: {{ projectDetailView.projectDescription }}
      
-        Team: {{ project.projectTeam }}
+        Team: {{ projectDetailView.projectTeam }}
       
-        Tech: {{ project.projectTech }}
+        Tech: {{ projectDetailView.projectTech }}
       
-        Status: {{ project.projectStatus }}
+        Status: {{ projectDetailView.projectStatus }}
       
-        Link: {{ project.projectLink }}
+        Link: {{ projectDetailView.projectLink }}
         </p>
     </div>
      
     <div class="projects-box3">
         <p>
-        Process: {{ project.projectProcess }}
+        Process: {{ projectDetailView.projectProcess }}
       </p>
     </div>
       </div> 
@@ -39,51 +39,30 @@
 
 <script setup>
 import useProjects from '../modules/useProducts.js';
-import { onMounted, ref } from 'vue';
-import { useRouter } from 'vue-router'
-import { defineProps, toRefs, computed } from 'vue';
+import { onMounted, ref, computed } from 'vue';
+import { useRouter } from 'vue-router';
+const router = useRouter()
 
+// const goBack = ( ) => {
+//     router.go(-1)
+// }
 
-
-const { state } = useProducts()
+const { projects, getProjectsData } = useProjects()
 
 const props = defineProps({
     id: String
 })
-
-const { id } = toRefs(props)
-
-// const projectDetailView = computed(
-//     () => {
-//         return state.value.find(item => item.id == id.value)
-//     }
-// )
+ // Get Id from route query
+ const id = computed(() => router.currentRoute.value.params.id)
 
 const projectDetailView = computed(() => {
-  // Use this to retrieve project details based on route parameters
-  // Fetch the details using this.$route.params or other data source
-  return {
-    projectTitle: $route.params.projectTitle,
-    projectCategory: $route.params.projectCategory,
-    projectDate: $route.params.projectDate,
-    projectDescription: $route.params.projectDescription,
-    projectTeam: $route.params.projectTeam,
-    projectTech: $route.params.projectTech,
-    projectStatus: $route.params.projectStatus,
-    projectLink: $route.params.projectLink,
-    projectProcess: $route.params.projectProcess,
-  };
+    return projects.value.find(project => project.id === id.value);
 });
-
-const {
-  projects,
-  getProjectsData,
-  firebaseDeleteSingleItem,
-  firebaseUpdateSingleItem,
-} = useProjects();
 
 onMounted(() => {
   getProjectsData();
+  console.log(projects, "projects");
+  projectDetailView.value = projects.value.find(project => project.id === id.value);
 });
 
 

@@ -11,7 +11,7 @@
 
   <div class="project-view">
     <div class="admin_project_card" v-for="project in projects" :key="project.projectID">
-        <h4>{{ project.projectTitle }}</h4>
+        <h3>{{ project.projectTitle }}</h3>
       <p>
         Category: {{ project.projectCategory }}
       </p>
@@ -36,9 +36,10 @@
       <p>
         Process: {{ project.projectProcess }}
       </p>
-      <!-- <router-link :to="{ name: 'ProjectDetailView', params: { id: project.projectID } }" class="btn-more"> -->
-        <!-- View Project -->
-      <!-- </router-link> -->
+      <router-link :to="{ name: 'projectdetail', params: { id: project.id } }" class="btn-more">
+    View Project
+</router-link>
+
       <button class="btn-delete" @click="firebaseDeleteSingleItem(project.id)" v-if="isLoggedIn">Delete item</button>
       <button class="btn-edit" @click="openEditModal(project)" v-if="isLoggedIn">Edit item</button>
     </div>
@@ -128,11 +129,5 @@ onMounted(() => {
 </script>
 
 <style scoped>
-/* Add your modal styles here */
-.modal {
-  /* Style your modal here */
-}
-.modal-content {
-  /* Style your modal content here */
-}
+
 </style>
