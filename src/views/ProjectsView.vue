@@ -37,50 +37,15 @@
         Process: {{ project.projectProcess }}
       </p>
       <router-link :to="{ name: 'projectdetail', params: { id: project.id } }" class="btn-more">
-    View Project
+    <button>View Project</button>
 </router-link>
 
-      <button class="btn-delete" @click="firebaseDeleteSingleItem(project.id)" v-if="isLoggedIn">Delete item</button>
-      <button class="btn-edit" @click="openEditModal(project)" v-if="isLoggedIn">Edit item</button>
+      <!-- <button class="btn-delete" @click="firebaseDeleteSingleItem(project.id)" v-if="isLoggedIn">Delete item</button> -->
+      <!-- <button class="btn-edit" @click="openEditModal(project)" v-if="isLoggedIn">Edit item</button> -->
     </div>
   </div>
 
-  <div class="modal" v-if="isEditModalOpen">
-    <div class="modal-content">
-      
-        <p> New Project Title:
-        <input type="text" placeholder="New project title" v-model="project.projectTitle" />
-        </p>
-        <p> New Project Category:
-        <input type="text" placeholder="New project category" v-model="project.projectCategory" />
-       </p>
-        <p> New Project Date:
-          <input type="date" placeholder="New project date" v-model="project.projectDate" />
-        </p>
-        <p> New Project Description:
-          <input type="text" placeholder="New project description" v-model="project.projectDescription" />
-        </p>
-        <p> New Project Team:
-          <input type="text" placeholder="New project team" v-model="project.projectTeam" />
-        </p>
-        <p> New Project Tech:
-          <input type="text" placeholder="New project tech" v-model="project.projectTech" />
-        </p>
-        <p> New Project Status:
-          <input type="text" placeholder="New project status" v-model="project.projectStatus" />
-        </p>
-        <p> New Project Link:
-          <input type="text" placeholder="New project link" v-model="project.projectLink" />
-        </p>
-        <p> New Project Process:
-          <input type="text" placeholder="New project process" v-model="project.projectProcess" />
-        </p>
-      
-        <button class="btn-update" @click="firebaseUpdateSingleItem(project.id)" v-if="isLoggedIn">Update Item</button>
-        <button class="btn-close" @click="closeEditModal">Close</button>
-      <hr>
-    </div>
-  </div>
+  
 </template>
 
 <script setup>
@@ -91,8 +56,10 @@ import { auth } from '../firebase.js';
 import { onAuthStateChanged } from 'firebase/auth';
 
 const isLoggedIn = ref(false);
-const isEditModalOpen = ref(false);
+/* const isEditModalOpen = ref(false); */
 const project = ref({});
+const selectedCategory = ref('All'); // Initialize with 'All'
+
 
 
 onMounted(() => {
@@ -110,10 +77,11 @@ onMounted(() => {
 const {
   projects,
   getProjectsData,
-  firebaseDeleteSingleItem,
-  firebaseUpdateSingleItem,
+  // firebaseDeleteSingleItem,
+  // firebaseUpdateSingleItem,
 } = useProjects();
 
+/* 
 const openEditModal = (selectedProject) => {
   project.value = { ...selectedProject };
   isEditModalOpen.value = true;
@@ -121,7 +89,25 @@ const openEditModal = (selectedProject) => {
 
 const closeEditModal = () => {
   isEditModalOpen.value = false;
+}; */
+
+//Filter//
+var selector
+
+const changeCategory = (category) => {
+  selectedCategory.value = category;
+  // Filter Firestore data based on the selected category
+  if (category !== 'All') {
+    projects.value = projects.value.filter((project) => project.projectCategory === category);
+  } else {
+    getProjectsData(); // If 'All' is selected, load all projects
+  }
+  // Filter Firestore data based on selected categories
+  projects.value = projects.value.filter((project) =>
+    selectedCategories.value.includes('All') || selectedCategories.value.includes(project.projectCategory)
+  ); 
 };
+
 
 onMounted(() => {
   getProjectsData();
