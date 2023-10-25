@@ -45,6 +45,7 @@ let logOut = () => {
 
         <div class="nav-sitelinks lg:w-2/5 md:w-2/5 sm:w-3-5 sm:text-xs">
             <RouterLink to="/">Home</RouterLink>
+            <RouterLink to="/about">About</RouterLink>
             <RouterLink to="/projects">Projects</RouterLink>
             <RouterLink v-if="isLoggedIn" to="/addprojects">Add projects</RouterLink>
           
@@ -102,6 +103,7 @@ nav  {
 .nav-sitelinks {
   display: flex;
   font-size: 1rem;
+  width: 100%;
 }
 
 nav a {

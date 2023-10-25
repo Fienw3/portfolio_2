@@ -44,13 +44,9 @@ onMounted(() => {
 
 
 const { 
-  projects, 
   getProjectsData, 
-  firebaseDeleteSingleItem, 
   firebaseAddSingleItem ,
   AddProjectData,
-  firebaseUpdateSingleItem,
-  UpdateProductData,
 
 } = useProjects();
 
