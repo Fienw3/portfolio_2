@@ -82,8 +82,6 @@ header {
   line-height: 1.5;
   max-height: 110vh;
   width: 100%;
-  /* border-bottom: 2px solid #000000; */
-  /* box-shadow: 0px 0px 3px 0px; */
   background-color: #F2f2f2;
 }
 
@@ -92,7 +90,7 @@ header .nav-wrapper {
     flex-wrap: wrap;
     position: sticky;
     width: 100%;
-  }
+}
 
 nav  {
   width: 100%;
@@ -104,14 +102,6 @@ nav  {
 .nav-sitelinks {
   display: flex;
   font-size: 1rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--pink-color);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
 }
 
 nav a {
@@ -149,33 +139,6 @@ nav a img:hover {
 img {
 margin:0%;
 }
-
-/* .contact-btn {
-  font-size: 1rem;
-  border-width: 2px 3px 4px 2px;
-  border-radius: 10px;
-  border-color: black;
-  background-color:hsla(339,0%,100%,1);
-  background-image:
-  radial-gradient(at 24% 54%, hsla(33,95%,67%,1) 0px, transparent 50%),
-  radial-gradient(at 2% 46%, hsla(187,89%,74%,1) 0px, transparent 50%),
-  radial-gradient(at 84% 95%, hsla(344,82%,76%,1) 0px, transparent 50%),
-  radial-gradient(at 84% 21%, hsla(187,88%,74%,1) 0px, transparent 50%),
-  radial-gradient(at 37% 9%, hsla(344,82%,76%,1) 0px, transparent 50%),
-  radial-gradient(at 15% 85%, hsla(187,88%,74%,1) 0px, transparent 50%);
-  color: black;
-  font-weight: bold;
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 0.0625px 0.19rem;
-} */
-
-div h1 {
-  font-family: "bd-supper", sans-serif;
-  font-weight: bold;
-  font-size: 1rem;
-  color: #000000;
-}
-
 .blankspace {
   display: flex;
   align-items: center;
@@ -183,8 +146,6 @@ div h1 {
 
 
 /*Footer*/
-
-
 path {
   stroke: #000000;
   stroke-width: 2px;

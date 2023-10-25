@@ -70,29 +70,33 @@ const useProjects = () => {
 
   }
 
-  const firebaseUpdateSingleItem = async(project) => { 
-    await updateDoc(doc(projectDataRef, project), {
-        projectTitle: projects.value.find(project => project.id === project.id).projectTitle, 
-        projectCategory: projects.value.find(project => project.id === project.id).projectCategory,
-        projectDate: projects.value.find(project => project.id === project.id).projectDate,
-        projectDescription: projects.value.find(project => project.id === project.id).projectDescription,
-        projectTeam: projects.value.find(project => project.id === project.id).projectTeam,
-        projectTech: projects.value.find(project => project.id === project.id).projectTech,
-        projectStatus: projects.value.find(project => project.id === project.id).projectStatus,
-        projectLink: projects.value.find(project => project.id === project.id).projectLink,
-        projectProcess: projects.value.find(project => project.id === project.id).projectProcess,
-    }).then(() => {
-      UpdateProjectData.value.projectTitle = ''
-      UpdateProjectData.value.projectCategory = ''
-      UpdateProjectData.value.projectDate = ''
-      UpdateProjectData.value.projectDescription = ''
-      UpdateProjectData.value.projectTeam = ''
-      UpdateProjectData.value.projectTech = ''
-      UpdateProjectData.value.projectStatus = ''
-      UpdateProjectData.value.projectLink = ''
-      UpdateProjectData.value.projectProcess = ''
-    })
-  }
+const firebaseUpdateSingleItem = async (project) => {
+  const projectRef = doc(projectDataRef, project.id); // Assuming project.id is the document ID
+
+  await updateDoc(projectRef, {
+    projectTitle: project.projectTitle,
+    projectCategory: project.projectCategory,
+    projectDate: project.projectDate,
+    projectDescription: project.projectDescription,
+    projectTeam: project.projectTeam,
+    projectTech: project.projectTech,
+    projectStatus: project.projectStatus,
+    projectLink: project.projectLink,
+    projectProcess: project.projectProcess,
+  }).then(() => {
+    // Clear the form data if needed
+    UpdateProjectData.value.projectTitle = '';
+    UpdateProjectData.value.projectCategory = '';
+    UpdateProjectData.value.projectDate = '';
+    UpdateProjectData.value.projectDescription = '';
+    UpdateProjectData.value.projectTeam = '';
+    UpdateProjectData.value.projectTech = '';
+    UpdateProjectData.value.projectStatus = '';
+    UpdateProjectData.value.projectLink = '';
+    UpdateProjectData.value.projectProcess = '';
+  });
+};
+
 
 
   

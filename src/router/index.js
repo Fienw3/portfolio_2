@@ -47,7 +47,7 @@ const router = createRouter({
   ]
 })
 
-
+// Login Guard, check if user is logged in, if not redirect to login page.
 router.beforeEach(async(to, from, next) => {
   if(to.matched.some(record => record.meta.requiresAuth)) {
     if (await getCurrentUser()) {

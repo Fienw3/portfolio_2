@@ -39,9 +39,6 @@
       <router-link :to="{ name: 'projectdetail', params: { id: project.id } }" class="btn-more">
     <button>View Project</button>
 </router-link>
-
-      <!-- <button class="btn-delete" @click="firebaseDeleteSingleItem(project.id)" v-if="isLoggedIn">Delete item</button> -->
-      <!-- <button class="btn-edit" @click="openEditModal(project)" v-if="isLoggedIn">Edit item</button> -->
     </div>
   </div>
 
@@ -56,12 +53,11 @@ import { auth } from '../firebase.js';
 import { onAuthStateChanged } from 'firebase/auth';
 
 const isLoggedIn = ref(false);
-/* const isEditModalOpen = ref(false); */
 const project = ref({});
 const selectedCategory = ref('All'); // Initialize with 'All'
 
 
-
+// Check if user is logged in//
 onMounted(() => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -77,21 +73,10 @@ onMounted(() => {
 const {
   projects,
   getProjectsData,
-  // firebaseDeleteSingleItem,
-  // firebaseUpdateSingleItem,
+  selectedCategories,
 } = useProjects();
 
-/* 
-const openEditModal = (selectedProject) => {
-  project.value = { ...selectedProject };
-  isEditModalOpen.value = true;
-};
-
-const closeEditModal = () => {
-  isEditModalOpen.value = false;
-}; */
-
-//Filter//
+//Filter by categories, using a fuction, that takes in a category as a parameter, and sets the selectedCategory.value to the category parameter//
 var selector
 
 const changeCategory = (category) => {
