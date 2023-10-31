@@ -2,7 +2,7 @@
   <div>
     <h1>Login</h1>
     Username: <input type="text" v-model="email" />
-    Password: <input type="password" v-model="password" />
+    Password: <input type="password" v-model="password" @keyup.enter="logIn"/>
     <p v-if="errMsg"> {{ errMsg }}</p>
     <button @click="logIn">Login</button>
   </div>
