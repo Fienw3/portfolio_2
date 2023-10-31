@@ -31,6 +31,7 @@
           <span>Process:</span> {{ projectDetailView.projectProcess }}
         </p>
         <button class="btn-edit" @click="openEditModal(projectDetailView)" v-if="isLoggedIn">Edit item</button>
+        <button class="btn-delete" @click="firebaseDeleteSingleItem(projectDetailView.id)" v-if="isLoggedIn">Delete item</button>
       </div>
 
     <!-- Edit Modal (delete + edit) -->
@@ -66,7 +67,7 @@
         </p>
 
         <button class="btn-update" @click="firebaseUpdateSingleItem(projectDetailView)" v-if="isLoggedIn">Update Item</button>
-        <button class="btn-delete" @click="firebaseDeleteSingleItem(projectDetailView.id)" v-if="isLoggedIn">Delete item</button>
+        
 
         <button class="btn-close" @click="closeEditModal">Close</button>
       <hr>

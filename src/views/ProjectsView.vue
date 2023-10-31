@@ -9,33 +9,22 @@
   <button type="button" class="all" @click="changeCategory('All')">All</button>
 </div>
 
-  <div class="project-view">
-    <div class="admin_project_card" v-for="project in projects" :key="project.projectID">
+  <div class="project-view flex">
+    <div class="admin_project_card lg:w-1/4 md:w-1/4 sm:w-4/4" v-for="project in projects" :key="project.projectID">
         <h3>{{ project.projectTitle }}</h3>
       <p>
-        Category: {{ project.projectCategory }}
+        <span>Category: </span>{{ project.projectCategory }}
       </p>
       <p>
-        Date: {{ project.projectDate}}
+        <span>Date: </span>{{ project.projectDate}}
       </p>
       <p>
-        Description: {{ project.projectDescription }}
+        <span>Team: </span>{{ project.projectTeam }}
       </p>
       <p>
-        Team: {{ project.projectTeam }}
+        <span>Description: </span>{{ project.projectDescription }}
       </p>
-      <p>
-        Tech: {{ project.projectTech }}
-      </p>
-      <p>
-        Status: {{ project.projectStatus }}
-      </p>
-      <p>
-        Link: {{ project.projectLink }}
-      </p>
-      <p>
-        Process: {{ project.projectProcess }}
-      </p>
+
       <router-link :to="{ name: 'projectdetail', params: { id: project.id } }" class="btn-more">
     <button>View Project</button>
 </router-link>
@@ -77,6 +66,7 @@ const {
 } = useProjects();
 
 //Filter by categories, using a fuction, that takes in a category as a parameter, and sets the selectedCategory.value to the category parameter//
+
 var selector
 
 const changeCategory = (category) => {
@@ -100,5 +90,9 @@ onMounted(() => {
 </script>
 
 <style scoped>
+span {
+  font-weight: bold;
+}
+
 
 </style>

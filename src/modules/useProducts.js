@@ -10,7 +10,7 @@ const useProjects = () => {
 
   const AddProjectData = ref({
     projectTitle: '',
-    projectCategory: '',
+    projectCategory: [],
     projectDate: '',
     projectDescription: '',
     projectTeam: '',
@@ -22,7 +22,7 @@ const useProjects = () => {
 
   const UpdateProjectData = ref({
     projectTitle: '',
-    projectCategory: '',
+    projectCategory: [],
     projectDate: '',
     projectDescription: '',
     projectTeam: '',
@@ -64,6 +64,7 @@ const useProjects = () => {
         projectLink: AddProjectData.value.projectLink,
         projectProcess: AddProjectData.value.projectProcess,
       }
+      
     );
       
     console.log("is added") 
@@ -86,7 +87,7 @@ const firebaseUpdateSingleItem = async (project) => {
   }).then(() => {
     // Clear the form data if needed
     UpdateProjectData.value.projectTitle = '';
-    UpdateProjectData.value.projectCategory = '';
+    UpdateProjectData.value.projectCategory = [];
     UpdateProjectData.value.projectDate = '';
     UpdateProjectData.value.projectDescription = '';
     UpdateProjectData.value.projectTeam = '';

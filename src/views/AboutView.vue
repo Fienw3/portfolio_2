@@ -25,7 +25,7 @@
     </p>
   </div>
 
-      <button class="download-cv font-bold" href="https://erhvervsakademisydvest-my.sharepoint.com/:b:/g/personal/annwal01_easv365_dk/EfZ_OPx6-nRKj2Pb8urT1pUB2qOY4BEHzbunuUZcTpbZ1A?e=Fyfw4I" alt="button that links to cv on onedrive">Download CV</button>
+      <!-- <button class="download-cv font-bold" href="https://erhvervsakademisydvest-my.sharepoint.com/:b:/g/personal/annwal01_easv365_dk/EfZ_OPx6-nRKj2Pb8urT1pUB2qOY4BEHzbunuUZcTpbZ1A?e=Fyfw4I" alt="button that links to cv on onedrive">Download CV</button> -->
     </div>
 
     <div class="about-photo 2xl:w-2/5 xl:w-2/5 lg:w-full md:w-full sm:w-full justify-end md:justify-start sm:justify-start">
@@ -98,10 +98,6 @@
 
   div span {
     font-weight: bold;
-  }
-
-  .download-cv {
-
   }
 
 .download-cv:hover {

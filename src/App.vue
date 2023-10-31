@@ -52,17 +52,6 @@ let logOut = () => {
               <button @click="logOut" v-if="isLoggedIn">Log Out</button>
         </div>
         
-      <div class="blankspace lg:w-1/5 md:w-1/5 sm:text-xs md:text-xs sm:hidden md:hidden align-middle"></div>
-        
-      <div class="contact-box lg:w-2/5 sm:w-2/5 md:hidden sm:hidden">
-          <a class="linkedinicon md:invisible sm:hidden" href="https://www.linkedin.com/in/anne-sofienwalz"><img src="../src/assets/Linkedin.png" alt="LinkedIn icon that takes you to my profile"></a>
-        
-          <div id="contact" class="contact sm:hidden">
-            <form method="get" action="#footer">
-                <button class="contact-btn sm:text-xs md:text-xs">Contact me</button>
-            </form>
-          </div>
-      </div>
 
       </nav>
       
@@ -119,58 +108,6 @@ nav a:first-of-type{
   padding-left: 0%;
 }
 
-.logo-name {
-  align-self: center;
-}
 
-nav a img {
-  max-height: 2rem;
-  align-self: center;
-}
-
-nav a img:hover {
-  transform: scale(1.1);
-}
-
-.contact-box {
-  display: flex;
-  justify-content: right;
-  align-items: center;
-}
-
-img {
-margin:0%;
-}
-.blankspace {
-  display: flex;
-  align-items: center;
-}
-
-
-/*Footer*/
-path {
-  stroke: #000000;
-  stroke-width: 2px;
-}
-
-.footer-grid-container {
-padding: 0px 8rem 3rem 8rem;
-}
-
-.footer-grid {
-  display: flex;
-  justify-content: space-between;
-}
-
-.footer-grid h3{
-  font-weight: bold;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.2rem;
-  color: #000000;
-}
-.footer-grid p{
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1rem;
-}
 
 </style>
