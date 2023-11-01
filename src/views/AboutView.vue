@@ -1,17 +1,14 @@
-<script setup>
-
-</script>
-
 <template>
-  <div class="about 2xl:px-32 2xl:py-12 xl:px-32 xl:py-12 lg:px-28 lg:py-8 md:px-24 md:py-6 sm:px-8 sm:py-5">
+
+  <div class="about lg:px-28 lg:py-8 md:px-24 md:py-6 sm:px-8 sm:py-5">
 
   <div class="about-container1 sm:flex-wrap md:flex-wrap">
 
     
     <div class="about-general 2xl:w-3/5 xl:w-3/5 lg:w-full md:w-full sm:w-full">
-    <h2>Hi im Anne-Sofie, <br> and this is everything about me.</h2>
+    <h1>Hi im Anne-Sofie, <br> and this is everything about me.</h1>
     <div class="sm:text-sm">
-    <h3>General information</h3>
+    <h2>General information</h2>
     <p>
         <span>Name:</span> Anne-Sofie Walz <br>
         <span>Age:</span> 23 years old <br>
@@ -60,6 +57,10 @@
 
 </template>
 
+<script setup>
+
+</script>
+
 <style>
   .about {
     min-height: 100vh;
@@ -73,27 +74,6 @@
   }
   .about-photo {
     display: flex;
-  }
-
-  div h2 {
-    font-family: "bd-supper", sans-serif;
-    color: #020202;
-    font-size: 2rem;
-  }
-
-  div p {
-    font-size: 1rem;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #020202;
-  }
-  
- 
-  .about h3 {
-    font-weight: bold;
-    font-family: "bd-supper", sans-serif;
-    padding-top: 28px;
-    font-size: 1rem;
-    color: #020202;
   }
 
   div span {

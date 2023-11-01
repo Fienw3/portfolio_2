@@ -1,11 +1,18 @@
 <template>
-  <div>
-    <h1>Login</h1>
-    Username: <input type="text" v-model="email" />
-    Password: <input type="password" v-model="password" @keyup.enter="logIn"/>
-    <p v-if="errMsg"> {{ errMsg }}</p>
-    <button @click="logIn">Login</button>
+<div class="lg:px-28 lg:py-5 md:px-24 md:py-4 sm:px-8 sm:py-4">
+
+  <h1>Login</h1> 
+  <div class="flex flex-col"> 
+        <label for="email">Email: </label>
+          <input id="email" type="text" v-model="email" />
+        <label for="password">Password: </label>
+          <input id="password" type="password" v-model="password" @keyup.enter="logIn"/>
+      
+      <p v-if="errMsg"> {{ errMsg }}</p>
+      <button @click="logIn">Login</button>
   </div>
+
+</div>
 </template>
 
 <script setup>

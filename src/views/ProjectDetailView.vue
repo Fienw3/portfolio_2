@@ -1,12 +1,12 @@
 <template>
 
-      <div v-if="projectDetailView" class="projectDetailView">
+      <div v-if="projectDetailView" class="projectDetailView lg:px-28 lg:py-8 md:px-24 md:py-6 sm:px-8 sm:py-5">
 
             <button @click="goBack()">Back</button>
         <div class="projects-box1">
-          <h2>
+          <h1>
             {{ projectDetailView.projectTitle }}
-          </h2>
+          </h1>
       </div>
         <div class="projects-box2">
           <ul>

@@ -16,7 +16,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AddProjectsView.vue')
+      component: () => import('../views/AddProjectsView.vue'),
     },
     {
     path: '/projects',
@@ -24,15 +24,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/ProjectsView.vue')
-    },
-    {
-      path: '/navguard',
-      name: 'navguard',
-      component: () => import('../views/NavGuardView.vue'),
-      meta: {
-        requiresAuth: true
-      }
+      component: () => import('../views/ProjectsView.vue'),
     },
     {
       path: '/login',
@@ -48,7 +40,7 @@ const router = createRouter({
       path: '/about',
       name: 'about',
       component: () => import('../views/AboutView.vue')
-    }
+    },
   ]
 })
 
