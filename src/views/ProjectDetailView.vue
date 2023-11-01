@@ -1,6 +1,6 @@
 <template>
 
-      <div v-if="projectDetailView" class="projectDetailView lg:px-28 lg:py-8 md:px-24 md:py-6 sm:px-8 sm:py-5">
+  <div v-if="projectDetailView" class="projectDetailView 2xl:px-32 2xl:py-12 xl:px-32 xl:py-12 lg:px-28 lg:py-8 md:px-24 md:py-6 sm:px-8 sm:py-5">
 
             <button @click="goBack()">Back</button>
         <div class="projects-box1">
@@ -8,25 +8,33 @@
             {{ projectDetailView.projectTitle }}
           </h1>
       </div>
-        <div class="projects-box2">
-          <ul>
-            <li><span>Category:</span> {{ projectDetailView.projectCategory }}</li>
+      
+
+      <div class="flex grid md:lg:grid-cols-3 sm:grid-cols-1">
+          <div class="projects-box2">
+            <ul>
+              <li><span>Category:</span> {{ projectDetailView.projectCategory.join(', ') }}</li>
+            
+              <li><span>Date:</span> {{ projectDetailView.projectDate }}</li>
+            
+              <li><span>Description:</span> {{ projectDetailView.projectDescription }}</li>
           
-            <li><span>Date:</span> {{ projectDetailView.projectDate }}</li>
-          
-            <li><span>Description:</span> {{ projectDetailView.projectDescription }}</li>
-        
-            <li><span>Team:</span> {{ projectDetailView.projectTeam }}</li>
-          
-            <li><span>Tech:</span> {{ projectDetailView.projectTech }}</li>
-          
-            <li><span>Status:</span> {{ projectDetailView.projectStatus }}</li>
-          
-            <li><span>Link: </span><a href="projectDetailView.projectLink">Link to project folder</a></li>
-        </ul>
-      </div>
+              <li><span>Team:</span> {{ projectDetailView.projectTeam }}</li>
+            
+              <li><span>Tech:</span> {{ projectDetailView.projectTech }}</li>
+            
+              <li><span>Status:</span> {{ projectDetailView.projectStatus }}</li>
+            
+              <li><span>Link: </span><a href="projectDetailView.projectLink">Link to project folder</a></li>
+          </ul>
+        </div>
+
+        <div class="projects-box5">
+          <img :src="projectDetailView.projectImg" alt="Project Image" />
+        </div>
+    </div>
      
-      <div class="projects-box3">
+      <div class="projects-box4">
         <p>
           <span>Process:</span> {{ projectDetailView.projectProcess }}
         </p>

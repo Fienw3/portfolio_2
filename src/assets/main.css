@@ -10,11 +10,46 @@
   overflow: hidden;
 }
 
+h1 {
+  font-size: 2.125rem;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1.875rem;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
 input, textarea {
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 0.5rem;
   margin: 0.5rem 0;
+}
+
+span {
+  font-weight: bold;
+}
+
+button:not(.logOut) {
+  background-color: #db607e;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0;
+  color: #fff;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif; 
+  cursor: pointer;
+  font-size: 15px;
+}
+
+button:not(.logOut):hover {
+  scale: 1.05;
 }
 
 .admin_project_card {
@@ -23,21 +58,14 @@ margin: 10px;
 padding: 10px;
 }
 
-span {
-  font-weight: bold;
+.square-image {
+  width: 250px; /* Adjust the width to your desired size */
+  height: 250px; /* Adjust the height to your desired size */
+  overflow: hidden;
 }
-
-
-/* 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
-} */
+.square-image img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  padding: 5% 0%;
+}

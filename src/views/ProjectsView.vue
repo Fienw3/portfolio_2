@@ -1,6 +1,6 @@
 <template>
 
-<div class="lg:px-28 lg:py-5 md:px-24 md:py-4 sm:px-8 sm:py-4">
+<div class="2xl:px-32 2xl:py-12 xl:px-32 xl:py-12 lg:px-28 lg:py-8 md:px-24 md:py-6 sm:px-8 sm:py-5">
 
 <div class="category-boxes">
   <button type="button" class="web-btn" @click="changeCategory('Web')" value="Web">Web</button>
@@ -11,28 +11,29 @@
   <button type="button" class="all" @click="changeCategory('All')">All</button>
 </div>
 
-  <div class="project-view flex grid md:lg:grid-cols-4 sm:grid-cols-1">
+  <div class="project-view flex grid grid-cols-4 sm:grid-cols-1">
     <div class="admin_project_card" v-for="project in filteredProjects" :key="project.id">
       
         <h3>{{ project.projectTitle }}</h3>
 
-        <div class="flex items-center justify-center w-80 h-80" v-if="project.projectImg">
-          <img id="projectImage" :src="project.projectImg" alt="Project Image" class="w-20 h-20">
-      </div>
+        <div class="flex items-center justify-center" v-if="project.projectImg">
+          <div class="square-image">
+            <img :src="project.projectImg" alt="Project Image">
+          </div>
+        </div>
 
-
-      <p>
-        <span>Category: </span>{{ project.projectCategory.join(', ') }}
-      </p>
-      <p>
-        <span>Date: </span>{{ project.projectDate}}
-      </p>
-      <p>
-        <span>Team: </span>{{ project.projectTeam }}
-      </p>
-      <p>
-        <span>Description: </span>{{ project.projectDescription }}
-      </p>
+            <p>
+              <span>Category: </span>{{ project.projectCategory.join(', ') }}
+            </p>
+            <p>
+              <span>Date: </span>{{ project.projectDate}}
+            </p>
+            <p>
+              <span>Team: </span>{{ project.projectTeam }}
+            </p>
+            <p>
+              <span>Description: </span>{{ project.projectDescription }}
+            </p>
 
       <router-link :to="{ name: 'projectdetail', params: { id: project.id } }" class="btn-more">
     <button>View Project</button>

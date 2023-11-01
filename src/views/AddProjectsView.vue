@@ -1,6 +1,6 @@
 <template>
   
-  <div class="add-project flex lg:px-28 lg:py-5 md:px-24 md:py-4 sm:px-8 sm:py-4">
+  <div class="add-project flex 2xl:px-32 2xl:py-12 xl:px-32 xl:py-12 lg:px-28 lg:py-8 md:px-24 md:py-6 sm:px-8 sm:py-5">
     <div class="flex flex-col">
 
       <h1 class="">Tilføj Projekt</h1>
@@ -58,7 +58,7 @@
       </div>
       
       <div>
-        <input type="file" @change="uploadImg" accept="image/*">
+        <input id="projectImg" type="file" @change="uploadImg" accept="image/*">
       </div>
 
       <div class="mb-4">

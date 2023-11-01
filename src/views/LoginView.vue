@@ -1,5 +1,5 @@
 <template>
-<div class="lg:px-28 lg:py-5 md:px-24 md:py-4 sm:px-8 sm:py-4">
+<div class="2xl:px-32 2xl:py-12 xl:px-32 xl:py-12 lg:px-28 lg:py-8 md:px-24 md:py-6 sm:px-8 sm:py-5">
 
   <h1>Login</h1> 
   <div class="flex flex-col"> 

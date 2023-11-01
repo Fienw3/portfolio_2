@@ -1,6 +1,6 @@
 <template>
 
-  <div class="about lg:px-28 lg:py-8 md:px-24 md:py-6 sm:px-8 sm:py-5">
+  <div class="about 2xl:px-32 2xl:py-12 xl:px-32 xl:py-12 lg:px-28 lg:py-8 md:px-24 md:py-6 sm:px-8 sm:py-5">
 
   <div class="about-container1 sm:flex-wrap md:flex-wrap">
 

@@ -49,7 +49,7 @@ let logOut = () => {
             <RouterLink to="/projects">Projects</RouterLink>
             <RouterLink v-if="isLoggedIn" to="/addprojects">Add projects</RouterLink>
           
-              <button @click="logOut" v-if="isLoggedIn">Log Out</button>
+              <button class="logOut " @click="logOut" v-if="isLoggedIn">Log Out</button>
         </div>
         
 
@@ -107,7 +107,6 @@ nav a {
 nav a:first-of-type{
   padding-left: 0%;
 }
-
 
 
 </style>

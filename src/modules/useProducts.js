@@ -4,6 +4,8 @@ import { ref } from 'vue'
 import { collection, onSnapshot, doc, deleteDoc, addDoc, updateDoc } from 'firebase/firestore';
 import { getStorage, ref as fbref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
+import router from '../router'
+
 const useProjects = () => {
 
   const projects = ref([]); // to store data from firebase
@@ -52,6 +54,7 @@ const useProjects = () => {
   const firebaseDeleteSingleItem = async(id) => {
     await deleteDoc(doc(db, "projects", id));
     console.log("is deleted", id)
+      router.push('/projects')
   }
 
   const firebaseAddSingleItem = async() => {
@@ -67,43 +70,52 @@ const useProjects = () => {
         projectLink: AddProjectData.value.projectLink,
         projectProcess: AddProjectData.value.projectProcess,
         projectImg: AddProjectData.value.projectImg
-      }
-      
-    );
-      
-    console.log("is added") 
+      });
 
-  }
+      // Clear the form data if needed
+      AddProjectData.value.projectTitle = '';
+      AddProjectData.value.projectCategory = [];
+      AddProjectData.value.projectDate = '';
+      AddProjectData.value.projectDescription = '';
+      AddProjectData.value.projectTeam = '';
+      AddProjectData.value.projectTech = '';
+      AddProjectData.value.projectStatus = '';
+      AddProjectData.value.projectLink = '';
+      AddProjectData.value.projectProcess = '';
+      AddProjectData.value.projectImg = '';
+    
+      console.log("is added");
+    };
 
-const firebaseUpdateSingleItem = async (project) => {
-  const projectRef = doc(projectDataRef, project.id); // Assuming project.id is the document ID
-
-  await updateDoc(projectRef, {
-    projectTitle: project.projectTitle,
-    projectCategory: project.projectCategory,
-    projectDate: project.projectDate,
-    projectDescription: project.projectDescription,
-    projectTeam: project.projectTeam,
-    projectTech: project.projectTech,
-    projectStatus: project.projectStatus,
-    projectLink: project.projectLink,
-    projectProcess: project.projectProcess,
-    projectImg: project.value.find(project => project.id === project.id).projectImg
-
-  }).then(() => {
-    // Clear the form data if needed
-    UpdateProjectData.value.projectTitle = '';
-    UpdateProjectData.value.projectCategory = [];
-    UpdateProjectData.value.projectDate = '';
-    UpdateProjectData.value.projectDescription = '';
-    UpdateProjectData.value.projectTeam = '';
-    UpdateProjectData.value.projectTech = '';
-    UpdateProjectData.value.projectStatus = '';
-    UpdateProjectData.value.projectLink = '';
-    UpdateProjectData.value.projectProcess = '';
-  });
-};
-
+    const firebaseUpdateSingleItem = async (project) => {
+      const projectRef = doc(projectDataRef, project.id); // Assuming project.id is the document ID
+    
+      await updateDoc(projectRef, {
+        projectTitle: project.projectTitle,
+        projectCategory: project.projectCategory,
+        projectDate: project.projectDate,
+        projectDescription: project.projectDescription,
+        projectTeam: project.projectTeam,
+        projectTech: project.projectTech,
+        projectStatus: project.projectStatus,
+        projectLink: project.projectLink,
+        projectProcess: project.projectProcess,
+        projectImg: project.projectImg // Use the new image URL from the update form
+      }).then(() => {
+        // Clear the form data if needed
+        UpdateProjectData.value.projectTitle = '';
+        UpdateProjectData.value.projectCategory = [];
+        UpdateProjectData.value.projectDate = '';
+        UpdateProjectData.value.projectDescription = '';
+        UpdateProjectData.value.projectTeam = '';
+        UpdateProjectData.value.projectTech = '';
+        UpdateProjectData.value.projectStatus = '';
+        UpdateProjectData.value.projectLink = '';
+        UpdateProjectData.value.projectProcess = '';
+        UpdateProjectData.value.projectImg = ''; // Optionally, clear the image URL field if needed
+      });
+    };
+    
 
   // IMG UPLOAD
 
