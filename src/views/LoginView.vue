@@ -30,7 +30,7 @@ let logIn = () => {
   signInWithEmailAndPassword(auth, email.value, password.value)
   .then((data) => {
     console.log("test data", data)
-    router.push('/home')
+    router.push('/')
   })
   .catch((error) => {
     switch(error.code) {

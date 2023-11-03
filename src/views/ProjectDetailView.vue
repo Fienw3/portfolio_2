@@ -5,30 +5,30 @@
       <button @click="goBack()">Back</button> <!--Back to previous page button-->
       
 
-      <div class="projects-box1 flex grid grid-cols-2 sm:grid-cols-1">
-          <div class="projects-box2">
+      <div class="projects-box1 flex columns-2 sm:columns-1 justify-between sm:flex-wrap">
+          <div class="projects-box2 break-words whitespace-normal sm:whitespace-nowrap">
             <h1>
               {{ projectDetailView.projectTitle }}
             </h1>
               <ul>
-                <li><span>Category:</span> {{ projectDetailView.projectCategory.join(', ') }}</li>
+                <li class="sm:break-words"><span>Category:</span> {{ projectDetailView.projectCategory.join(', ') }}</li>
               
-                <li><span>Date:</span> {{ projectDetailView.projectDate }}</li>
+                <li class="sm:break-words"><span>Date:</span> {{ projectDetailView.projectDate }}</li>
               
-                <li><span>Description:</span> {{ projectDetailView.projectDescription }}</li>
+                <li class="sm:break-words"><span>Description:</span> {{ projectDetailView.projectDescription }}</li>
             
-                <li><span>Team:</span> {{ projectDetailView.projectTeam }}</li>
+                <li class="sm:break-words"><span>Team:</span> {{ projectDetailView.projectTeam }}</li>
               
-                <li><span>Tech:</span> {{ projectDetailView.projectTech }}</li>
+                <li class="sm:break-words"><span>Tech:</span> {{ projectDetailView.projectTech }}</li>
               
-                <li><span>Status:</span> {{ projectDetailView.projectStatus }}</li>
+                <li class="sm:break-words"><span>Status:</span> {{ projectDetailView.projectStatus }}</li>
               
-                <li><span>Link: </span>{{ projectDetailView.projectLink}}</li>
+                <li class="sm:break-words"><span>Link: </span>{{ projectDetailView.projectLink}}</li>
             </ul>
           </div>
 
           <!--Image-->
-        <div class="projects-box-img flex justify-end">
+        <div class="projects-box-img flex justify-end sm:justify-start">
           <img :src="projectDetailView.projectImg" alt="Project Image"/>
         </div>
       </div>
@@ -177,8 +177,7 @@ span {
 
 .projects-box-img {
   display: flex;
-  max-width: 400px;
-  width: 100%;
+  max-width: 200px;
   align-self: flex-end;
 }
 
