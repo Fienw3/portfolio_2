@@ -15,7 +15,7 @@
 
 
           <div class="aboutme-box">
-            <button><RouterLink class="aboutme-btn font-bold" to="/about">Read more about me here!</RouterLink></button><br>
+            <button><RouterLink class="aboutme-btn" to="/about">Read more about me here!</RouterLink></button><br>
               <button class="font-bold align-middle" href="https://erhvervsakademisydvest-my.sharepoint.com/:b:/g/personal/annwal01_easv365_dk/EfZ_OPx6-nRKj2Pb8urT1pUB2qOY4BEHzbunuUZcTpbZ1A?e=Fyfw4I" alt="button that links to cv on onedrive">Download CV</button>
         </div>
     </div>
@@ -32,7 +32,7 @@
 
     <h2 class="text-center">Newest Projects</h2>
 
-    <div class="project-view flex grid grid-cols-4 sm:grid-cols-1">
+    <div class="project-view flex grid grid-cols-4 md:grid-cols-2 sm:grid-cols-1">
 
       <div class="admin_project_card" v-for="project in newestProjects" :key="project.id">
         <h3>{{ project.projectTitle }}</h3>
@@ -50,17 +50,17 @@
           <span>Date: </span>{{ project.projectDate }}
         </p>
         <p>
-          <span>Team: </span>{{ project.projectTeam }}
-        </p>
-        <p>
           <span>Description: </span>{{ project.projectDescription }}
         </p>
-        <router-link :to="{ name: 'projectdetail', params: { id: project.id } }" class="btn-more">
-          <button>View Project</button>
-        </router-link>
+        <div class="flex justify-center py-1">
+          <router-link :to="{ name: 'projectdetail', params: { id: project.id } }" class="btn-more">
+            <button>View Project</button>
+          </router-link>
+      </div>
       </div>
     </div>
   </div>
+  
 </template>
 
 <script setup>
@@ -69,7 +69,7 @@ import useProjects from '../modules/useProducts.js';
 
 const { projects, getProjectsData } = useProjects();
 
-// Define a computed property to get the 4 newest projects
+// Define a computed property to get the 4 newest projects, based on thee date thats inserted into the input field.
 const newestProjects = computed(() => {
   const sortedProjects = projects.value.slice().sort((a, b) => new Date(b.projectDate) - new Date(a.projectDate));
   return sortedProjects.slice(0, 4);

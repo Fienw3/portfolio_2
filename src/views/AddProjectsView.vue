@@ -3,7 +3,7 @@
   <div class="add-project flex 2xl:px-32 2xl:py-12 xl:px-32 xl:py-12 lg:px-28 lg:py-8 md:px-24 md:py-6 sm:px-8 sm:py-5">
     <div class="flex flex-col">
 
-      <h1 class="">Tilføj Projekt</h1>
+      <h1 class="">Add project</h1>
 
       <div class="add-project-box grid md:lg:grid-cols-2 sm:grid-cols-1 gap-4">
 

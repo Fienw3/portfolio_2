@@ -2,7 +2,10 @@
 
 <div class="2xl:px-32 2xl:py-12 xl:px-32 xl:py-12 lg:px-28 lg:py-8 md:px-24 md:py-6 sm:px-8 sm:py-5">
 
-<div class="category-boxes">
+  <h1 class="text-center">Projects</h1>
+
+<!--Category filter-->
+<div class="category-boxes grid grid-cols-6 md:grid-cols-2 sm:grid-cols-2 gap-8 sm:gap-4">
   <button type="button" class="web-btn" @click="changeCategory('Web')" value="Web">Web</button>
   <button type="button" class="video-btn" @click="changeCategory('Video')" value="Video">Video</button>
   <button type="button" class="photo-btn" @click="changeCategory('Photo')" value="Photos">Photos</button>
@@ -22,22 +25,24 @@
           </div>
         </div>
 
-            <p>
-              <span>Category: </span>{{ project.projectCategory.join(', ') }}
-            </p>
-            <p>
-              <span>Date: </span>{{ project.projectDate}}
-            </p>
-            <p>
-              <span>Team: </span>{{ project.projectTeam }}
-            </p>
-            <p>
-              <span>Description: </span>{{ project.projectDescription }}
-            </p>
+        <div class="flex flex-col">
+        <p>
+          <span>Category: </span>{{ project.projectCategory.join(', ') }}
+        </p>
+        <p>
+          <span>Date: </span>{{ project.projectDate }}
+        </p>
+        <p>
+          <span>Description: </span>{{ project.projectDescription }}
+        </p>
 
-      <router-link :to="{ name: 'projectdetail', params: { id: project.id } }" class="btn-more">
-    <button>View Project</button>
-</router-link>
+        <!--Button to go to the projectdetailview, with data thats consistent with the id-->
+        <div class="flex flex-col items-center justify-end h-full">
+          <router-link :to="{ name: 'projectdetail', params: { id: project.id } }" class="btn-more">
+            <button>View Project</button>
+          </router-link>
+      </div>
+    </div>
     </div>
     </div>
   </div>
@@ -70,7 +75,7 @@ onMounted(() => {
 const { projects, getProjectsData } = useProjects();
 const selectedCategory = ref('All');
 
-// Define a computed property to filter projects based on the selected category
+// Define a computed property (deprive value based on existing data) to filter projects based on the selected category
 const filteredProjects = computed(() => {
   if (selectedCategory.value === 'All') {
     return projects.value;

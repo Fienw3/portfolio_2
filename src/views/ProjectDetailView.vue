@@ -2,47 +2,48 @@
 
   <div v-if="projectDetailView" class="projectDetailView 2xl:px-32 2xl:py-12 xl:px-32 xl:py-12 lg:px-28 lg:py-8 md:px-24 md:py-6 sm:px-8 sm:py-5">
 
-            <button @click="goBack()">Back</button>
-        <div class="projects-box1">
-          <h1>
-            {{ projectDetailView.projectTitle }}
-          </h1>
-      </div>
+      <button @click="goBack()">Back</button> <!--Back to previous page button-->
       
 
-      <div class="flex grid md:lg:grid-cols-3 sm:grid-cols-1">
+      <div class="projects-box1 flex grid grid-cols-2 sm:grid-cols-1">
           <div class="projects-box2">
-            <ul>
-              <li><span>Category:</span> {{ projectDetailView.projectCategory.join(', ') }}</li>
+            <h1>
+              {{ projectDetailView.projectTitle }}
+            </h1>
+              <ul>
+                <li><span>Category:</span> {{ projectDetailView.projectCategory.join(', ') }}</li>
+              
+                <li><span>Date:</span> {{ projectDetailView.projectDate }}</li>
+              
+                <li><span>Description:</span> {{ projectDetailView.projectDescription }}</li>
             
-              <li><span>Date:</span> {{ projectDetailView.projectDate }}</li>
-            
-              <li><span>Description:</span> {{ projectDetailView.projectDescription }}</li>
-          
-              <li><span>Team:</span> {{ projectDetailView.projectTeam }}</li>
-            
-              <li><span>Tech:</span> {{ projectDetailView.projectTech }}</li>
-            
-              <li><span>Status:</span> {{ projectDetailView.projectStatus }}</li>
-            
-              <li><span>Link: </span><a href="projectDetailView.projectLink">Link to project folder</a></li>
-          </ul>
-        </div>
+                <li><span>Team:</span> {{ projectDetailView.projectTeam }}</li>
+              
+                <li><span>Tech:</span> {{ projectDetailView.projectTech }}</li>
+              
+                <li><span>Status:</span> {{ projectDetailView.projectStatus }}</li>
+              
+                <li><span>Link: </span>{{ projectDetailView.projectLink}}</li>
+            </ul>
+          </div>
 
-        <div class="projects-box5">
-          <img :src="projectDetailView.projectImg" alt="Project Image" />
+          <!--Image-->
+        <div class="projects-box-img flex justify-end">
+          <img :src="projectDetailView.projectImg" alt="Project Image"/>
         </div>
-    </div>
+      </div>
      
-      <div class="projects-box4">
+      <div class="projects-box3 py-10">
         <p>
           <span>Process:</span> {{ projectDetailView.projectProcess }}
         </p>
+        <div class="flex gap-8 sm:gap-4">
         <button class="btn-edit" @click="openEditModal(projectDetailView)" v-if="isLoggedIn">Edit item</button>
         <button class="btn-delete" @click="firebaseDeleteSingleItem(projectDetailView.id)" v-if="isLoggedIn">Delete item</button>
       </div>
+      </div>
 
-    <!-- Edit Modal (delete + edit) -->
+    <!-- Edit Modal (delete + edit buttons) -->
     <div class="modal" v-if="isEditModalOpen && isLoggedIn">
       <div class="modal-content">
       
@@ -73,11 +74,15 @@
         <p> New Project Process:
           <input type="text" placeholder="New project process" v-model="projectDetailView.projectProcess" />
         </p>
+        <div> New Image:
+        <input id="projectImg" type="file" @change="uploadImg" accept="image/*">
+        </div>
 
+        <div class="flex gap-8 sm:gap-4">
         <button class="btn-update" @click="firebaseUpdateSingleItem(projectDetailView)" v-if="isLoggedIn">Update Item</button>
-        
 
         <button class="btn-close" @click="closeEditModal">Close</button>
+      </div>
       <hr>
     </div>
   </div>
@@ -116,6 +121,7 @@ onMounted(() => {
   })
 }) 
 
+// Go back to previous page.
 const goBack = ( ) => {
     router.go(-1)
 }
@@ -136,13 +142,12 @@ const projectDetailView = computed(() => {
     return projects.value.find(project => project.id === id.value);
 });
 
-
-// Modal functions with open and close, and update and delete functions from useProjects.
 const {
   firebaseDeleteSingleItem,
   firebaseUpdateSingleItem,
 } = useProjects();
 
+// Open and close edit modal of the selected project.
 const openEditModal = (selectedProject) => {
   project.value = { ...selectedProject };
   isEditModalOpen.value = true;
@@ -168,6 +173,13 @@ onMounted(() => {
 
 span {
   font-weight: bold;
+}
+
+.projects-box-img {
+  display: flex;
+  max-width: 400px;
+  width: 100%;
+  align-self: flex-end;
 }
 
 </style>
